@@ -32,8 +32,11 @@ if todownload.upper() == 'Y':
     uploadFile(fileto)
 todownload = input(str("Download our stories folder? (Y/n): "))
 if todownload.upper() == 'Y':
+    ftp.cwd('/Stories/')
+    ftp.retrlines('LIST')
     todownload = input(str("Which story would you like to download: "))
     downloadFile(todownload)
+    ftp.cwd('/')
 print("Thank you for visiting!")
 ftp.quit()
 #uploadFile()
